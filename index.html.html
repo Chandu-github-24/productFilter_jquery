@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery  -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="stylesheet" href="filter.css" type="text/css">
+</head>
+
+<body>
+    <section>
+        <ul>
+            <li class="list active" data-filter="All">All</li>
+            <li class="list" data-filter="mobile">mobile</li>
+            <li class="list" data-filter="camera">cameras</li>
+            <li class="list" data-filter="watches">watches</li>
+            <li class="list" data-filter="shoes">shoes</li>
+            <li class="list" data-filter="headphones">headphones</li>
+
+        </ul>
+        <div class="product">
+            <div class="itemBox mobile"><img src="images/mobile1.jpg"></div>
+            <div class="itemBox camera"><img src="images/camera1.jpg"></div>
+            <div class="itemBox watches"><img src="images/watch1.jpg"></div>
+            <div class="itemBox shoes"><img src="images/shoe1.jpg"></div>
+            <div class="itemBox headphones"><img src="images/headphone1.jpg"></div>
+
+            <div class="itemBox mobile"><img src="images/mobile2.jpg"></div>
+            <div class="itemBox camera"><img src="images/camera2.jpg"></div>
+            <div class="itemBox watches"><img src="images/watch2.jpg"></div>
+            <div class="itemBox shoes"><img src="images/shoe2.jpg"></div>
+            <div class="itemBox headphones"><img src="images/headphone2.jpg"></div>
+
+            <div class="itemBox mobile"><img src="images/mobile3.jpg"></div>
+            <div class="itemBox camera"><img src="images/camera3.jpg"></div>
+            <div class="itemBox watches"><img src="images/watch3.jpg"></div>
+            <div class="itemBox shoes"><img src="images/shoe3.jpg"></div>
+            <div class="itemBox headphones"><img src="images/headphone3.jpg"></div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".list").click(function () {
+                const value = $(this).attr('data-filter')
+                if (value == "All") {
+                    $('.itemBox').show("50")
+                } else {
+                    $('.itemBox').not('.' + value).hide("50")
+                    $('.itemBox').filter('.' + value).show("50")
+
+                }
+            })
+            //  add active class
+            $(".list").click(function  () {
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+        })
+
+    </script>
+</body>
+
+</html>
